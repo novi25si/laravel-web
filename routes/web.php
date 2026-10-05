@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/pcr', function () {
     return view('Selamat Datang di Website Kampus PCR!');
@@ -14,10 +16,7 @@ Route::get('/mahasiswa', function () {
     return 'Halo Mahasiswa';
 })->name('mahasiswa.show');
 
-Route::get('/nama/{param1}', function ($NoviAdel) {
-    return 'Nama saya: '.$NoviAdel;
-});
+Route::get('/home', [HomeController::class, 'index']);
 
-Route::get('/nim/{param1?}', function ($param1 = '2557301099') {
-    return 'NIM saya: '.$param1;
-});
+Route::post('question/store', [QuestionController::class, 'store'])
+		->name('question.store');
