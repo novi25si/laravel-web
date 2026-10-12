@@ -172,15 +172,21 @@
         </div>
         @endif
 
+       @if (session('info'))
+            <div class="alert alert-info">
+             {!! session('info') !!}
+            </div>
+        @endif
+
         <form action="{{ route('question.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" name = "nama" value ='{{old('nama')}}'>
+                <input type="text" class="form-control" id =" nama" name = "nama" value ='{{old('nama')}}'>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" name="email" value ='{{old('email')}}'>
+                <input type="text" class="form-control" id ="email" name="email" value ='{{old('email')}}'>
             </div>>
             </div>
             <div class="mb-3">
